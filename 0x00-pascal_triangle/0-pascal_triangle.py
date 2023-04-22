@@ -2,17 +2,29 @@
 """ pascal triangle
 """
 
+
 def pascal_triangle(n):
+    """ returns pascal triangle
+    """
     if n <= 0:
         return []
-    if n == 1:
-        return [[1]]
-    if n == 2:
-        return [[1], [1, 1]]
-    pascal = [[1], [1, 1]]
-    for i in range(2, n):
-        pascal.append([1])
-        for j in range(1, i):
-            pascal[i].append(pascal[i - 1][j - 1] + pascal[i - 1][j])
-        pascal[i].append(1)
-    return pascal
+
+    pas = []
+
+    for i in range(n):
+        r_List = [1]
+        if i == 0:
+            pas.append(r_List)
+            continue
+
+        k = i - 1
+        for j in range(len(pas[k])):
+            if j + 1 == len(pas[k]):
+                r_List.append(1)
+                break
+            # adding the result of previous row and col
+            res = pas[k][j] + pas[k][j + 1]
+            r_List.append(res)
+        pas.append(r_List)
+
+    return pas
