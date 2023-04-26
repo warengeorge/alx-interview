@@ -2,28 +2,14 @@
 """
 Task: Lockboxes
 """
-
 def canUnlockAll(boxes):
-    """
-    Check if all boxes can be opened
-    """
-    # check if boxes is empty
-    if len(boxes) == 0:
-        return False
-
-    unlocked = set()
-    unlocked.add(0)
-
-    for count, value in enumerate(boxes):
-        # check if index box can't be unlocked
-        if count not in unlocked:
-            return False
-
-        # add key indexes from unlocked box
-        for key in value:
-            # check each key index and update the set
-            if key < len(boxes) and key > count:
-                unlocked.update(boxes[key])
-        unlocked.update(value)
-
-    return True
+    unlocked = [0]
+    for box_id, box in enumerate(boxes):
+        if not box:
+            continue
+        for key in box:
+            if key < len(boxes) and key not in unlocked and key != box_id:
+                unlocked.append(key)
+    if len(unlocked) == len(boxes):
+        return True
+    return False
