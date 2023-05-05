@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 '''
 minimum operations
-''' 
+'''
+
 
 def minOperations(n):
 
