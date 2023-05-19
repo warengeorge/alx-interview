@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 """
-a method that determines if a given data 
+a method that determines if a given data
 set represents a valid UTF-8 encoding
 """
+
 
 def validUTF8(data):
 
     bytes_remaining = 0
-    
+
     for byte in data:
         if bytes_remaining == 0:
             if byte >> 7 == 0b0:
