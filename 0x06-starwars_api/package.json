@@ -1,0 +1,15 @@
+{
+  "name": "0x06-starwars_api",
+  "version": "1.0.0",
+  "description": "Star Wars API",
+  "main": "0-starwars_characters.js",
+  "devDependencies": {
+    "request": "^2.88.2",
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "start": "0-starwars_characters.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
